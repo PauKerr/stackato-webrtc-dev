@@ -5,8 +5,6 @@ import shortuuid
 def generate_storage_name(instance, filename):
     instance.filename = filename
     extension = filename.split('.')[-1]
-#    return "%s/%s.%s" % (strftime('%Y-%m-%d', gmtime()),
-#                         str(uuid4()), extension)
     return "%s/%s.%s" % (strftime('%Y-%m-%d', gmtime()),
                          shortuuid.uuid(), extension)
 
