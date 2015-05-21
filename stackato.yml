@@ -1,0 +1,12 @@
+name: webrtc-dev
+mem: 1024M
+disk: 4096G
+services:
+  ${name}-db: postgresql
+  ${name}-fs: filesystem
+framework:
+  type: python
+  runtime: python27
+processes:
+  web: gunicorn webrtc_dev.wsgi
+
