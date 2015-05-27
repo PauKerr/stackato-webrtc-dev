@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^logs/', include('logs.urls')),
+    url(r'^log/', include('logs.urls', namespace='logs')),
     # Examples:
     # url(r'^$', 'stackato.views.home', name='home'),
     # url(r'^stackato/', include('stackato.foo.urls')),

@@ -1,0 +1,12 @@
+{% if collection_list %}
+    <ul>
+    {% for collection in collection_list %}
+        <li><a href="{% url 'logs:collection' collection.id %}">
+                {{ collection.received_on }}</a>
+            {{ collection.description }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No log collections available</p>
+{% endif %}

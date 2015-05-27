@@ -9,4 +9,7 @@ framework:
   runtime: python27
 processes:
   web: gunicorn webrtc_dev.wsgi
+hooks:
+  post-staging:
+    - ln -s "$STACKATO_FILESYSTEM"/files files
 

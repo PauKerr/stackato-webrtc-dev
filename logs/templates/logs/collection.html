@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+{% if collection %}
+    <h1>WebRTC Log Collection (id = {{ collection.id }})</h1>
+    <p>Received On: {{ collection.received_on }}</p>
+    {% if collection.description %}
+        <p>Description: {{ collection.description }} </p>
+    {% endif %}
+    <h2>Files</h2>    
+    <ul>
+    {% for file in file_list %}
+        <li><a href="{% url 'logs:file' file.id %}">{{ file.filename }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Log collection not found</p>
+{% endif %}
+
