@@ -70,17 +70,17 @@ MEDIA_ROOT = os.environ['HOME'] + '/files/'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = 'http://webrtc-dev/paas/allizom.org/files/'
+MEDIA_URL = 'http://webrtc-dev.paas.allizom.org/files/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = 'static/'
+STATIC_ROOT = os.environ['HOME'] + '/static/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = 'http://webrtc-dev/paas/allizom.org/static/'
+STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

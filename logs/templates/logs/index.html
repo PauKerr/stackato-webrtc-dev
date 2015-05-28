@@ -1,4 +1,9 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'logs/css/base.css' %}" /> 
+
 {% if collection_list %}
+    <h1>Log Collections</h1>
     <ul>
     {% for collection in collection_list %}
         <li><a href="{% url 'logs:collection' collection.id %}">

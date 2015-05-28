@@ -1,9 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'logs/css/base.css' %}" /> 
+
 {% if collection %}
     <h1>WebRTC Log Collection (id = {{ collection.id }})</h1>
-    <p>Received On: {{ collection.received_on }}</p>
+    <p><span class="label">Received On:</span> {{ collection.received_on }}</p>
     {% if collection.description %}
-        <p>Description: {{ collection.description }} </p>
+        <p><span class="label">Description:</span> {{ collection.description }} </p>
     {% endif %}
     <h2>Files</h2>    
     <ul>
