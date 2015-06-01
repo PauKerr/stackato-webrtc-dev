@@ -8,8 +8,10 @@ framework:
   type: python
   runtime: python27
 processes:
-  web: gunicorn webrtc_dev.wsgi
+  web: $STACKATO_UWSGI --wsgi-file webrtc_dev/wsgi.py --static-map /static=$HOME/static
 hooks:
   post-staging:
+    - '[ -e "$STACKATO_FILESYSTEM"/files ] || mkdir -p "$STACKATO_FILESYSTEM"/files'
     - ln -s "$STACKATO_FILESYSTEM"/files files
+    - python manage.py collectstatic --noinput
 
