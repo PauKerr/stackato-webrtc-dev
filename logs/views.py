@@ -11,7 +11,8 @@ def index(request):
 
     elif request.method == 'POST':
         collection = LogCollection(
-                         description=request.POST.get('Description')
+                         description=request.POST.get('Description', None),
+                         user_agent=request.META.get('HTTP_USER_AGENT', None),
                      )
         collection.save()
         for file_group in request.FILES.lists():
@@ -44,4 +45,3 @@ def file(request, file_id):
     except IOError:
         return HttpResponseNotFound()
     return response
-

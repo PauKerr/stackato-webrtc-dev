@@ -7,8 +7,10 @@
     <ul>
     {% for collection in collection_list %}
         <li><a href="{% url 'logs:collection' collection.id %}">
-                {{ collection.received_on }}</a>
-            {{ collection.description }}
+              {{ collection.received_on }}</a>
+        {% if collection.description %}    
+          {{ collection.description }}
+        {% endif %}
         </li>
     {% endfor %}
     </ul>

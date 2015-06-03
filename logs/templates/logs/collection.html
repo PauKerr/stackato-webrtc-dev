@@ -8,6 +8,9 @@
     {% if collection.description %}
         <p><span class="label">Description:</span> {{ collection.description }} </p>
     {% endif %}
+    {% if collection.user_agent %}
+        <p><span class="label">UserAgent:</span> {{ collection.user_agent }} </p>
+    {% endif %}
     <h2>Files</h2>    
     <ul>
     {% for file in file_list %}
