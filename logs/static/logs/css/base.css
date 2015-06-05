@@ -9,3 +9,12 @@ h2 {
 .label {
     font-weight: bold;
 }
+
+td {
+    padding: 0.2em 1em 1em;
+    margin: 1em 1.2em;
+}
+
+thead {
+    text-align: center;
+}

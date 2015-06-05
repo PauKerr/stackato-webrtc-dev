@@ -1,4 +1,4 @@
-from django.http import HttpResponse, FileResponse, HttpResponseNotFound
+from django.http import HttpResponse, FileResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from logs.models import LogCollection, LogFile
@@ -25,9 +25,7 @@ def index(request):
                                          char_set=(file.charset or ''),
                                          fileobj=file,
                                          )
-        rsp_html = ('<a href="http://webrtc-dev.paas.allizom.org'
-                    '/logs/%d">Log Collection</a>') % (collection.id)
-        return HttpResponse(rsp_html)
+        return JsonResponse({'logset_id': collection.id})
 
 def collection(request, collection_id):
     log_collection = get_object_or_404(LogCollection, pk=collection_id)

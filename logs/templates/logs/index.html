@@ -3,17 +3,26 @@
 <link rel="stylesheet" type="text/css" href="{% static 'logs/css/base.css' %}" /> 
 
 {% if collection_list %}
-    <h1>Log Collections</h1>
-    <ul>
+  <h1>Log Collections</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Uploaded on (UTC)</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
     {% for collection in collection_list %}
-        <li><a href="{% url 'logs:collection' collection.id %}">
-              {{ collection.received_on }}</a>
-        {% if collection.description %}    
-          {{ collection.description }}
+      <tr>
+        <td><a href="{% url 'logs:collection' collection.id %}">
+            {{ collection.received_on }}</a></td>
+        {% if collection.description %}
+          <td>{{ collection.description }}</td>
         {% endif %}
-        </li>
+      </tr>
     {% endfor %}
-    </ul>
+    </tbody>
+  </table>
 {% else %}
-    <p>No log collections available</p>
+  <p>No log collections available</p>
 {% endif %}
